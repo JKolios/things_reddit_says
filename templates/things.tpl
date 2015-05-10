@@ -16,12 +16,13 @@
               } );
 
               socket.on( 'message', function(message) {
-                    $("#message").text(message);
+                  var messageElement = $("#message");
+                  var messageClone = messageElement.clone(true);
+                  messageClone.text(message);
+                  messageElement.before(messageClone);
+                  messageElement.remove()
               } );
 
-              socket.on( 'reddit_comment', function(comment) {
-                    $("#message").text(comment);
-              } );
 
               socket.on( 'disconnect', function() {
                     $("#message").text("disconnected :(");

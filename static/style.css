@@ -1,11 +1,33 @@
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
 #title {
     margin: 1em auto;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 #message{
     margin: 0 auto;
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
+
+    animation-name: fadeIn;
+    animation-duration: 5s;
+    animation-direction: normal;
+    animation-timing-function: ease;
+
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-direction: normal;
+    -webkit-animation-timing-function: ease;
 }
