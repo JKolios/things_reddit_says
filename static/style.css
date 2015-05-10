@@ -1,3 +1,9 @@
+body {
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  padding: 1em;
+  -webkit-font-smoothing: antialiased;
+}
+
 @keyframes fadeIn {
     0% {opacity: 0;}
     50% {opacity: 1;}
@@ -10,6 +16,20 @@
     100% {opacity: 0;}
 }
 
+.fade_anim{
+    animation-name: fadeIn;
+    animation-duration: 5s;
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-direction: normal;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
 #title {
     margin: 1em auto;
     text-align: center;
@@ -20,14 +40,25 @@
     margin: 0 auto;
     text-align: center;
     font-size: 20px;
-
-    animation-name: fadeIn;
-    animation-duration: 5s;
-    animation-direction: normal;
-    animation-timing-function: ease;
-
-    -webkit-animation-name: fadeIn;
-    -webkit-animation-duration: 5s;
-    -webkit-animation-direction: normal;
-    -webkit-animation-timing-function: ease;
+    max-width: 40%;
 }
+
+#metadata{
+    margin: 1em auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+#permalink{
+    margin: 1em auto;
+    text-align: center;
+    font-size: 18px;
+    display: none;
+}
+
+#form_container{
+    margin: 3em auto;
+    text-align: center;
+    font-size: 18px;
+}
+
