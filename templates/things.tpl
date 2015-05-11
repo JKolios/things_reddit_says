@@ -19,19 +19,21 @@
 
             var uri = 'http://{{host[0]}}:{{host[1]}}/reddit_stream'
             var socket = io.connect(uri);
+            var frontend_id = null;
             var messageElement = $("#message");
             var metadataElement = $("#metadata");
             var permalinkElement = $("#permalink");
 
             function change_subreddit(subreddit){
+                var emit_object = {'frontend_id': frontend_id, 'new_subreddit': subreddit}
                 console.log('Changing to ' + subreddit);
-                socket.emit('change_subreddit',subreddit);
+                socket.emit('change_subreddit',emit_object);
             }
 
             messageElement.on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function() {
 
                 console.log('Sending get_next');
-                socket.emit('get_next','');
+                socket.emit('get_next', frontend_id);
 
             });
 
@@ -55,8 +57,11 @@
             socket.on( 'connect', function() {
 
                 $("#message").text("Connected to: " + uri);
-//                socket.emit('get_next','');
+            });
 
+            socket.on('init_response', function(response) {
+                console.log('Got frontend_id: '+ response)
+                frontend_id = response;
             });
 
             socket.on( 'message', function(message) {
