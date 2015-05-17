@@ -1,4 +1,4 @@
-bottle_config = {'host': ('0.0.0.0', 8585),
+bottle_config = {'host': ('0.0.0.0', 80),
                  'url': 'http://localhost:8585'}
 
 praw_config = {'app_id': 'JA8xZaOGYSbsyQ',
